@@ -1,2 +1,0 @@
-class Body < ApplicationRecord
-end
