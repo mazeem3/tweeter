@@ -8,12 +8,28 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <div class="page-header">
-  <%= link_to root_path, class: "title_text" do%>
-  <h1>Home</h1>
-<%end %>
-</div>
-    <%= yield %>
+    <header>
+      <%= link_to 'Home', root_path %>
+
+      <% if @current_user %>
+        <%= link_to 'Sign Out', sign_in_path, method: :delete %>
+
+        Hi <%= @current_user.username %>. You have <%= @current_user.tweets.count %> tweets.
+      <% else %>
+        <%= link_to 'Sign In', sign_in_path %>
+
+      <% end %>
+    </header>
+    <body>
+
+<%= debug params %>
+    <% if notice %>
+      <p>
+        <%= notice %>
+      </p>
+    <% end %>
+
+  <%= yield %>
+
   </body>
-</html>
+  </html>

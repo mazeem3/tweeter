@@ -6,5 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Tweet.delete_all
+User.delete_all
 
-Tweet.create! body: "Test"
+maaz = User.create! username: "maaz", password: "12345678", photo:"https://pbs.twimg.com/profile_images/590428304433225729/-7MkD7Cb.jpg"
+Tweet.create! user: maaz, body: "Test"
