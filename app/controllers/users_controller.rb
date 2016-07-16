@@ -1,4 +1,10 @@
 class UsersController < ApplicationController
+    before_action except: [:create, :new] do
+      if @current_user.nil?
+        redirect_to sign_in_path, notice: "Please Sign In"
+      end
+    end
+
     def index
         @users = User.where('id != ?', @current_user.id)
     end
