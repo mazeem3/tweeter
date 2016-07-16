@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160715171301) do
+ActiveRecord::Schema.define(version: 20160716210449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "follows", force: :cascade do |t|
+    t.string   "followable_type",                 null: false
+    t.integer  "followable_id",                   null: false
+    t.string   "follower_type",                   null: false
+    t.integer  "follower_id",                     null: false
+    t.boolean  "blocked",         default: false, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["followable_id", "followable_type"], name: "fk_followables", using: :btree
+    t.index ["followable_type", "followable_id"], name: "index_follows_on_followable_type_and_followable_id", using: :btree
+    t.index ["follower_id", "follower_type"], name: "fk_follows", using: :btree
+    t.index ["follower_type", "follower_id"], name: "index_follows_on_follower_type_and_follower_id", using: :btree
+  end
 
   create_table "tweets", force: :cascade do |t|
     t.string   "body"

@@ -1,0 +1,14 @@
+<div class="list-group">
+  <% @tweets.each do |tweet| %>
+    <div class="list-group-item">
+      <div class="well">
+        <small class="muted"><em>
+          <%= time_ago_in_words tweet.created_at %> ago
+          <%= tweet.user.username %> Tweeted: <br>
+        </em></small>
+          <%= tweet.body %>
+      </div>
+     </div>
+  <% end %>
+
+</div>

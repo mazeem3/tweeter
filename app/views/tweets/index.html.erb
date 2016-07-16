@@ -3,7 +3,7 @@
 <% end %><div class="container">
 
   <% @tweets.each do |tweet| %>
-    <div class="well quack-well">
+    <div class="well">
       <small class="muted"><em>
         <%= time_ago_in_words tweet.created_at %> ago
         <%= tweet.user.username %> Tweeted: <br>
