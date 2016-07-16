@@ -6,11 +6,7 @@ class TweetsController < ApplicationController
       end
     end
     def index
-        @tweets = if @current_user
-                      @current_user.timeline
-                  else
-                      Tweet.all
-                  end
+        @tweets = Tweet.all
     end
 
     def top
@@ -24,7 +20,7 @@ class TweetsController < ApplicationController
     def create
         @tweet = Tweet.new
         @tweet.body = params[:tweet][:body]
-        # @tweet.user = @current_user
+        @tweet.user = @current_user
 
         if @tweet.save
             redirect_to root_path, notice: 'Tweet posted!'
