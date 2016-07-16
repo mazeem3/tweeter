@@ -1,0 +1,13 @@
+<div class="container">
+  <% @tweets.each do |tweet| %>
+    <div class="well quack-well">
+      <small class="muted"><em>
+        <%= time_ago_in_words tweet.created_at %> ago
+        <%= tweet.id %> Tweeted: <br>
+      </em></small>
+        <%= tweet.body %>
+    </div>
+    <%= link_to "Delete", tweet_path(id: tweet.id), method: 'delete', class:"btn btn-danger" %><br>
+  </div>
+  <% end %>
+</div>
