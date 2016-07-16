@@ -1,4 +1,10 @@
 class TweetsController < ApplicationController
+
+    before_action except: :show do
+      if @current_user.nil?
+        redirect_to sign_in_path, notice: "SIGN IN YO"
+      end
+    end
     def index
         @tweets = if @current_user
                       @current_user.timeline
