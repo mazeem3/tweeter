@@ -2,7 +2,6 @@ class User < ApplicationRecord
     validates :username, presence: true
     has_secure_password
     has_many :tweets
-
     acts_as_follower
     acts_as_followable
 

@@ -35,7 +35,7 @@ class UsersController < ApplicationController
     def follow
         user = User.find_by! id: params[:user_id]
         @current_user.follow(user)
-        redirect_to users_path, notice: 'Followed'
+        redirect_to root_path, notice: 'Followed'
     end
 
     def unfollow

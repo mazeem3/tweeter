@@ -1,7 +1,9 @@
 <%= link_to new_tweet_path do %>
 <h2 class="btn btn-primary btn-lg new_post">Create a New Tweet</h2>
 <% end %><div class="container">
-
+<p>
+<%= @current_user.inspect %>
+</p>
   <% @tweets.each do |tweet| %>
     <div class="well">
       <small class="muted"><em>
