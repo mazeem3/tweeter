@@ -1,35 +1,51 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>TwitterClone</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>TwitterClone</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
 
     <header>
-      <%= link_to 'Home', root_path %>
+        <%= link_to 'All Users', users_path %>
 
-      <% if @current_user %>
+        <%= link_to 'People You Follow', following_path %>
+        <%= link_to 'Home', root_path %>
+
+        <%= link_to 'Feed', feed_path %>
+
+        <% if @current_user %>
         <%= link_to 'Sign Out', sign_in_path, method: :delete %>
-
-        Hi <%= @current_user.username %>. You have <%= @current_user.tweets.count %> tweets.
-      <% else %>
+    <% else %>
         <%= link_to 'Sign In', sign_in_path %>
-
-      <% end %>
+        <% end %>
     </header>
+    <div class="jumbo">
+
+    <span>
+        <% if @current_user %>
+
+        Hi
+        <%= @current_user.username %>. You have
+        <%= @current_user.tweets.count %>
+        tweets.
+
+        <%end %>
+
+    </span>
     <body>
 
-<%= debug params %>
-    <% if notice %>
-      <p>
-        <%= notice %>
-      </p>
-    <% end %>
+        <% if notice %>
+        <p>
+            <%= notice %>
+        </p>
+        <% end %>
 
-  <%= yield %>
+        <%= yield %>
 
-  </body>
-  </html>
+    </body>
+  </div>
+
+</html>

@@ -8,6 +8,9 @@ class TweetsController < ApplicationController
     def index
         @tweets = Tweet.all
     end
+    def feed
+        @tweets = @current_user.timeline
+    end
 
     def top
         @top_tweets = User.where('id != ?', @current_user.id)
@@ -28,6 +31,7 @@ class TweetsController < ApplicationController
             render :new
         end
     end
+
     def delete
       Tweet.find(params[:id]).destroy
       redirect_to root_path

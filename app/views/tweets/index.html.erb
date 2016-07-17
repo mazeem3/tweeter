@@ -1,17 +1,24 @@
-<%= link_to new_tweet_path do %>
-<h2 class="btn btn-primary btn-lg new_post">Create a New Tweet</h2>
-<% end %><div class="container">
+<div class="container">
 
-  <% @tweets.each do |tweet| %>
-    <div class="well quack-well">
-      <small class="muted"><em>
-        <%= time_ago_in_words tweet.created_at %> ago
-        <%= tweet.user.username %> Tweeted: <br>
-      </em></small>
+    <%= link_to new_tweet_path do %>
+    <h2 class="btn btn-primary btn-lg new_post">Create a New Tweet</h2>
+    <% end %>
+    <% @tweets.each do |tweet| %>
+
+    <div class="well">
+        <small class="muted">
+            <em>
+                <%= time_ago_in_words tweet.created_at %>
+                ago
+                <%= tweet.user.username %>
+                Tweeted:
+                <br>
+            </em>
+        </small>
+
         <%= tweet.body %>
+
     </div>
 
-    <%= link_to "Delete", tweet_path(id: tweet.id), method: 'delete', class:"btn btn-danger" %><br>
-  </div>
-  <% end %>
+    <% end %>
 </div>
