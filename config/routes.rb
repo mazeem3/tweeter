@@ -14,8 +14,8 @@ Rails.application.routes.draw do
    post 'registration' => 'users#create', as: :create_user
 
 
-   get 'users' => 'users#index', as: :users
-   get 'followers' => 'users#following', as: :following
+   get 'followers' => 'users#index', as: :users
+   get 'following' => 'users#following', as: :following
    post 'follow/:user_id' => 'users#follow', as: :follow
    post 'unfollow/:user_id' => 'users#unfollow', as: :unfollow
 

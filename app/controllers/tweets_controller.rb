@@ -31,6 +31,7 @@ class TweetsController < ApplicationController
             render :new
         end
     end
+
     def delete
       Tweet.find(params[:id]).destroy
       redirect_to root_path
