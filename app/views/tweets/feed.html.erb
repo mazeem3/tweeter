@@ -1,22 +1,29 @@
+<div class="container">
+
+<div class="col-md-8">
+
 <div class="list-group">
+    <div class="well">
+
     <% @tweets.each do |tweet| %>
     <div class="list-group-item">
-        <div class="well">
+
+            <h5><%= tweet.body %></h5>
             <small class="muted">
                 <em>
+                   by
+                   <%= tweet.user.username %>
+
                     <%= time_ago_in_words tweet.created_at %>
                     ago
-                    <%= tweet.user.username %>
-                    Tweeted:
                     <br>
                 </em>
             </small>
-            <%= tweet.body %>
-            <%= link_to tweet_path(id: tweet.id), method: 'delete' do %>
-            <span class="glyphicon glyphicon-trash"></span>
-            <% end %>
-        </div>
-    </div>
-    <% end %>
 
+        </div>
+    <% end %>
+  </div>
+
+</div>
+</div>
 </div>

@@ -1,8 +1,5 @@
 header {
   background: #2980b9;
-
-
-
   display:flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -23,14 +20,37 @@ header {
   }
 
 }
-.jumbo {
-  height: 100vh; //visual height units
-  border: 1px solid #000000;
-  background: image_url("bat.png");
-  background-size: cover; // scale as the .jumbo grows and shrinks
-  background-position: center; // cen
+
+
+a{
+  float: right;
 }
 .well{
   margin-top: 50px;
   margin-right: 10px;
+
+}
+.badge{
+float: right;
+}
+.col-sm-3 > div{
+  margin: 0px;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.col-md-8{
+margin-left: 20%;
+}
+div.well{
+  margin-top: 30px;
+}
+
+body{
+  background: image_url("back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 110%;
+  padding-bottom: 40px;
+
+  background-attachment: fixed;
 }

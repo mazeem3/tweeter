@@ -2,11 +2,11 @@ class TweetsController < ApplicationController
 
     before_action except: :show do
       if @current_user.nil?
-        redirect_to sign_in_path, notice: "SIGN IN YO"
+        redirect_to sign_in_path, notice: "Please Sign in"
       end
     end
     def index
-        @tweets = Tweet.all
+        @tweets = Tweet.where user_id: @current_user.id
     end
     def feed
         @tweets = @current_user.timeline
