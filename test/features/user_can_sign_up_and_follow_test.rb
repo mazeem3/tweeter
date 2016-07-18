@@ -15,7 +15,7 @@ class UserCanSignUpAndFollowTest < Capybara::Rails::TestCase
     fill_in "Username", with: "Test"
     fill_in "Password", with: "12345678"
     click_button "Sign In"
-    assert_content page, "My Tweets"
+    assert_content page, "My Posts"
   end
 
   test "User can Follow another User and See Their Posts" do
