@@ -6,3 +6,13 @@ addons:
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 - cp config/database.yml.travis config/database.yml
+deploy:
+  provider: heroku
+  api_key:
+    secure: a14qPEN5DEB1pu49DWPEe3jaikTN5t1+G55vLKli6l1vKz8cXSpjmv+GQKn8zXSYyAc2iS1wg7RoaFXiCJwPZZjgB///p8Iv9G8GWXO6gfIl/GUP/0SJeO/HW4aik6P9furP74SYHwas7K4TeiiN8KUyT4ZaVB9eFXfltGrXUJFHuoItd1Ptr+/c7thCAKy/q0nfI8Rf7OjONq6YuBd3jjBuFRB6J9JkiyYOvy5GQlEkFG39hS/z8jAXBRRXOztRy3uY1QQmZw5mmLQmRScfS4x644LlbyFvyF82l5NGvglsLW/KclQ6V6T9IjESzET9ShN3RdBNCXodIlamGF7VYrezagNrsEtRZWYX0HZyqNUwbfDQ+9/MoDRVQBKERMhfgq0bu6duColaJZQkIYtFbWNzu7K4HfEbrTNv/43ySMmg9QsJcyb/yQJEdU2qsG/gM7fOHXYkQPB5i37OuMWow3/x+mGjY+A8Q4aQJwA9wV3tnv0Woby5Hza/FxJ4YfGRSk7hajDwFd7DEAk+Ib3RYx4dSAN8egCPv6C1c/pcTxxhtGDUFdEZu/uUVJDnbGDWw85RgMuUoApJJ5CQG54G2SCu07bdCJPp0pIO8vjiY6y4mmqR4rXifYlqUWwdyeOf0NLznpU9D95kXukq2c3ZGoKTl9RaS6L/w8ehvGAytGw=
+  app: tweeter-maaz
+  on:
+    repo: mazeem3/tweeter
+    branch: test
+  run:
+    - "rake db:migrate"
