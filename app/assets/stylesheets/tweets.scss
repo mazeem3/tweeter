@@ -21,13 +21,7 @@ header {
 
 }
 
-// body {
-//   height: 100vh; //visual height units
-//   border: 1px solid #000000;
-//   background: image_url("bat.png");
-//   background-size: cover; // scale as the .jumbo grows and shrinks
-//   background-position: center; // cen
-// }
+
 a{
   float: right;
 }
@@ -46,4 +40,17 @@ float: right;
 }
 .col-md-8{
 margin-left: 20%;
+}
+div.well{
+  margin-top: 30px;
+}
+
+body{
+  background: image_url("back.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-size: 100% 110%;
+  padding-bottom: 40px;
+
+  background-attachment: fixed;
 }

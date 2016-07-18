@@ -4,9 +4,11 @@ Tweet.delete_all
 User.delete_all
 
 
-3.times do |i|
+10.times do |i|
   i = User.create username: "#{Faker::Internet.user_name}", photo: "#{Faker::Avatar.image(i+1, "300x300")}", password: "12345678"
-  Tweet.create user_id: i.id, body: "#{Faker::ChuckNorris.fact}"
+  3.times do |tweet|
+  tweet = Tweet.create user_id: i.id, body: "#{Faker::ChuckNorris.fact}"
+end
 
 end
 
